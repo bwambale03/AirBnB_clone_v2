@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Fabric script that distributes an archive to your web servers
-
+    Fabric script that distributes an archive to your web servers
 
 """
 
@@ -9,7 +8,7 @@ from datetime import datetime
 from fabric.api import env, put, run, cd, *
 import os
 
-env.hosts = ["54.172.135.58", ""]
+env.hosts = ["54.172.135.58", "100.54.87.156"]
 env.user = "ubuntu"
 env.key_filename = "~/.ssh/school"
 
