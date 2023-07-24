@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""test for BaseModel"""
+""" test for BaseModel"""
 import unittest
 import os
 from os import getenv
