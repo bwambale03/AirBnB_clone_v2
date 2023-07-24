@@ -2,14 +2,16 @@
 """
 Fabric script that distributes an archive to your web servers
 
+
 """
 
 from datetime import datetime
-from fabric.api import *
+from fabric.api import env, put, run, cd, *
 import os
 
-env.hosts = ["54.237.80.101", "100.26.121.175"]
+env.hosts = ["54.172.135.58", ""]
 env.user = "ubuntu"
+env.key_filename = "~/.ssh/school"
 
 
 def do_pack():
@@ -50,4 +52,4 @@ def do_deploy(archive_path):
         print("New version deployed!")
         return True
 
-    return False
+    return Fals
