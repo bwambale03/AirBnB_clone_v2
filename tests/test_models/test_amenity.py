@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""test for amenity"""
+""" test for amenity"""
 import unittest
 import os
 from models.amenity import Amenity
