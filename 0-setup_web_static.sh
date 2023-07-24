@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# A bash script that sets up web servers for the depolyment of web static
+# A bash script that sets up web servers for the depolyment of web static 
 # !# Install nginx if not installed already
 # Creates the required directories
 # Creates a fake HTML file for test
