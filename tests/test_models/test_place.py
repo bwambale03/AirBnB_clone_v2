@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""test for place"""
+""" test for place"""
 import unittest
 import os
 from os import getenv
