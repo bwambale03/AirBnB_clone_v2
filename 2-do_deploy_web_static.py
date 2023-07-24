@@ -9,7 +9,6 @@ import os
 
 env.hosts = ["54.237.80.101", "100.26.121.175"]
 env.user = "ubuntu"
-env.key_filename = "~/.ssh/your_private_key.pem"  # Replace with the actual path to your SSH private key
 
 def do_pack():
     """
