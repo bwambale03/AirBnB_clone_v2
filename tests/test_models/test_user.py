@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""test for user"""
+""" test for user"""
 import unittest
 import os
 from models.user import User
