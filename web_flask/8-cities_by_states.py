@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """
-starts a Flask web applicationstart Flask application"""
+starts a Flask web applicationstart Flask application
+"""
+
 
 from flask import Flask, render_template
 from models import *
