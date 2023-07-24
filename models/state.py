@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines the State class."""
+""" Defines the State class."""
 import models
 from os import getenv
 from models.base_model import Base
@@ -32,4 +32,4 @@ class State(BaseModel, Base):
             for city in list(models.storage.all(City).values()):
                 if city.state_id == self.id:
                     city_list.append(city)
-            return city_list
+            return city_lisit
