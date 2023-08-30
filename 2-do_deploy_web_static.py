@@ -43,7 +43,7 @@ def do_deploy(archive_path):
         # move contents of sub-drectories individually
         subdirectories = ['images', 'styles']
         for subdir in subdirectories:
-            run("sudo mv {}/web_static/{}/ {}".
+            run("sudo mv {}/web_static/{}/ {} || true "
                 format(newest_version, subdir, newest_version))
 
         run("sudo rm -rf {}/web_static/*".format(newest_version))
