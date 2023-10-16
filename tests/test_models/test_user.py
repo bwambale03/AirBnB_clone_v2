@@ -16,7 +16,7 @@ class TestUser(unittest.TestCase):
         cls.user = User()
         cls.user.first_name = "Kevin"
         cls.user.last_name = "Yook"
-        cls.user.email = "yook00627@gmamil.com"
+        cls.user.email = "yook00627@gmail.com"
         cls.user.password = "secret"
 
     @classmethod
