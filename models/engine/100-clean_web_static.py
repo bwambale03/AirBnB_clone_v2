@@ -2,7 +2,7 @@
 from fabric.api import *
 
 
-env.hosts = ['100.26.225.174', '18.209.224.170']
+env.hosts = ['54.157.152.10', '54.157.160.52']
 env.user = "ubuntu"
 
 
@@ -11,7 +11,7 @@ def do_clean(number=0):
 
     number = int(number)
 
-    if numbers == 0:
+    if number == 0:
         number = 2
     else:
         number += 1
