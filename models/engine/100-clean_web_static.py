@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from fabric.api import *
+from fabric.api import env, local, run
 
 
 env.hosts = ['54.157.152.10', '54.157.160.52']
