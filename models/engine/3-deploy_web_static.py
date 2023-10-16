@@ -5,29 +5,29 @@ import time
 from fabric.api import local
 from fabric.operations import env, put, run
 
-env.hosts = ['100.26.225.174', '18.209.224.170']
+env.hosts = ['54.157.152.10', '54.157.160.52']
 
 
 def do_pack():
     """This Generates a tgz archive from web_static folder"""
     try:
         local("mkdir -p versions")
-        local("tar -cvzf versions/web_static_{}.tgz web_static/".
-              format(time.strftime("%Y%m%d%H%M%S")))
-        return ("versions/web_static_{}.tgz".format(time.
-                                                    strftime("%Y%m%d%H%M%S")))
-    except:
+        local("tar -cvzf versions/web_static_{}.tgz web_static/".format(
+            time.strftime("%Y%m%d%H%M%S")))
+        return "versions/web_static_{}.tgz".format(
+                time.strftime("%Y%m%d%H%M%S"))
+    except Exception as e:
         return None
 
 
 def do_deploy(archive_path):
     """This distributes an archive to web servers"""
-    if (os.path.isfile(archive_path) is False):
+    if not os.path.isfile(archive_path):
         return False
 
     try:
         file = archive_path.split("/")[-1]
-        folder = ("/data/web_static/releases/" + file.split(".")[0])
+        folder = "/data/web_static/releases/" + file.split(".")[0]
         put(archive_path, "/tmp/")
         run("mkdir -p {}".format(folder))
         run("tar -xzf /tmp/{} -C {}".format(file, folder))
@@ -38,7 +38,7 @@ def do_deploy(archive_path):
         run("ln -s {} /data/web_static/current".format(folder))
         print("Deployment done")
         return True
-    except:
+    except Exception as e:
         return False
 
 
@@ -47,5 +47,5 @@ def deploy():
     try:
         path = do_pack()
         return do_deploy(path)
-    except:
+    except Exception as e:
         return False
