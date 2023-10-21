@@ -1,28 +1,29 @@
 #!/usr/bin/python3
-# Fabfile to delete out-of-date archives .
+# Fabfile to delete out-of-date archives.
+
 import os
 from fabric.api import env, lcd, local, cd, run
 
 env.hosts = ["54.157.152.10", "54.157.160.52"]
 
 
-def do_clean(number=0):
+def do_clean(archives_to_keep=1):
     """Delete out-of-date archives.
+    
     Args:
-        number (int): The number of archives to keep.
-    If number is 0 or 1, keeps only the most recent archive. If
-    number is 2, keeps the most and second-most recent archives,
-    etc.
+        archives_to_keep (int): The number of archives to keep.
+            If 0 or 1, keeps only the most recent archive. If
+            2, keeps the most and second-most recent archives, etc.
     """
-    number = 1 if int(number) == 0 else int(number)
+    archives_to_keep = max(1, int(archives_to_keep))
 
-    archives = sorted(os.listdir("versions"))
-    [archives.pop() for i in range(number)]
     with lcd("versions"):
-        [local("rm ./{}".format(a)) for a in archives]
+        local_archives = sorted(os.listdir("."))
+        local_archives_to_delete = local_archives[:-archives_to_keep]
+        [local(f"rm ./{archive}") for archive in local_archives_to_delete]
 
     with cd("/data/web_static/releases"):
-        archives = run("ls -tr").split()
-        archives = [a for a in archives if "web_static_" in a]
-        [archives.pop() for i in range(number)]
-        [run("rm -rf ./{}".format(a)) for a in archives]
+        remote_archives = run("ls -tr").split()
+        web_static_archives = [a for a in remote_archives if "web_static_" in a]
+        remote_archives_to_delete = web_static_archives[:-archives_to_keep]
+        [run(f"rm -rf ./{archive}") for archive in remote_archives_to_delete]
