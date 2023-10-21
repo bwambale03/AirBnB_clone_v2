@@ -19,7 +19,7 @@ sudo touch / data/web_static/releases/test/index.html
 
 echo "<html><head><title>Test HTML file</title></head><body>This is a test HTML file.</body></html>" | sudo tee / data/web_static/releases/test/index.html
 
-sudo ln - sf / data/web_static/releases/test / data/web_static/current
+sudo ln -sf /data/web_static/releases/test /data/web_static/current
 
 sudo chown - R ubuntu: ubuntu / data/
 
