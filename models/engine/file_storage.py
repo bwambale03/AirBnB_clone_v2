@@ -28,7 +28,7 @@ class FileStorage:
         # TODO: should these be more precise specifiers?
         key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj
-        
+
     def delete(self, obj):
         """Deletes obj from __objects if it's inside"""
         obj_id = "{}.{}".format(type(obj).__name__, obj.id)

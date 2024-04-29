@@ -7,9 +7,12 @@ from models.state import State
 fs = FileStorage()
 
 # Function to filter states
+
+
 def get_all_states():
     all_objects = fs.all()
     return {k: v for k, v in all_objects.items() if isinstance(v, State)}
+
 
 # All States initially
 all_states = get_all_states()
@@ -52,4 +55,3 @@ all_states = get_all_states()
 print("All States: {}".format(len(all_states)))
 for state in all_states.values():
     print(state)
-
