@@ -3,8 +3,12 @@
 """
 
 from models.state import State
-from models import City, User, Place, Amenity
 from models import storage
+from models.city import City
+from models.place import Place
+from models.user import User
+from models.amenity import Amenity
+
 
 # creation of a State
 state = State(name="California")
