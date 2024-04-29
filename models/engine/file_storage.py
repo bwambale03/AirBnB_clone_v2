@@ -28,6 +28,14 @@ class FileStorage:
         # TODO: should these be more precise specifiers?
         key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj
+        
+    def delete(self, obj):
+        """Deletes obj from __objects if it's inside"""
+        obj_id = "{}.{}".format(type(obj).__name__, obj.id)
+        if obj_id in self.__objects:
+            del self.__objects[obj_id]
+            return True
+        return False
 
     def save(self):
         """Serialzes __objects to JSON file."""
