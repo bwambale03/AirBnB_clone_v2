@@ -7,6 +7,7 @@
 # sets ownership of folder, updates and restarts nginx
 # exits successfully
 
+
 sudo apt-get update
 sudo apt-get - y install nginx
 
