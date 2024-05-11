@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines the HBNB console. """
+"""this file Defines the HBNB console. """
 
 import cmd
 from shlex import split
