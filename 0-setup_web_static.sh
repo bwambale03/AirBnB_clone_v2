@@ -22,7 +22,7 @@ cat <<EOF | sudo tee /data/web_static/releases/test/index.html
     <title>Test HTML file</title>
 </head>
 <body>
-    This is a test HTML file.
+    Holberton School
 </body>
 </html>
 EOF
