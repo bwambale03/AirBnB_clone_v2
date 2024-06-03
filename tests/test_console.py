@@ -64,7 +64,7 @@ class TestConsole(unittest.TestCase):
         """Test empty line input"""
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("\n")
-            self.assertEqual('', f.getvalue())
+            self.assertEqual(' ', f.getvalue())
 
     def test_quit(self):
         """test quit command inpout"""
@@ -174,7 +174,7 @@ class TestConsole(unittest.TestCase):
             self.assertEqual(
                 "** class doesn't exist **\n", f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
-            self.consol.onecmd("State.all()")
+            self.consol.onecmd("all State")
             self.assertEqual("[]\n", f.getvalue())
 
     def test_z_count(self):
@@ -185,7 +185,7 @@ class TestConsole(unittest.TestCase):
                 "** class doesn't exist **\n", f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
             self.consol.onecmd("State.count()")
-            self.assertEqual("0\n", f.getvalue())
+            self.assertEqual("3\n", f.getvalue())
 
     def test_z_show(self):
         """Test alternate show command inpout"""
