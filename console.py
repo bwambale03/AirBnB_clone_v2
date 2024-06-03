@@ -142,20 +142,19 @@ class HBNBCommand(cmd.Cmd):
         """Usage: all or all <class> or <class>.all()
         Display string representations of all instances of a given class.
         If no class is specified, displays all instantiated objects."""
-        if not line:
-            o = storage.all()
-            print([o[k].__str__() for k in o])
-            return
-        try:
-            args = line.split(" ")
-            if args[0] not in self.__classes:
-                raise NameError()
 
-            o = storage.all(eval(args[0]))
-            print([o[k].__str__() for k in o])
+        def do_all(self, arg):
+            """Prints all string representation of all instances based or not on the class name"""
+            args = arg.split()
+            if len(args) == 0:
+                print([str(obj) for obj in storage.all().values()])
+            else:
+                try:
+                    cls = eval(args[0])
+                    print([str(obj) for obj in storage.all(cls).values()])
+                except NameError:
+                    print("** class doesn't exist **")
 
-        except NameError:
-            print("** class doesn't exist **")
 
     def do_update(self, line):
         """Updates an instanceby adding or updating attribute
