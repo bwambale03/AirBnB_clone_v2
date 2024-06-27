@@ -1,6 +1,14 @@
 #!/usr/bin/python3
 """
-start Flask application
+This script starts a Flask web application with several routes:
+- /: displays "Hello HBNB!"
+- /hbnb: displays "HBNB"
+- /c/<text>: displays "C " followed by the value of the text variable (with underscores replaced by spaces)
+- /python/(<text>): displays "Python " followed by the value of the text variable (with underscores replaced by spaces, default is "is cool")
+- /number/<n>: displays "n is a number" only if n is an integer
+- /number_template/<n>: displays an HTML page only if n is an integer (H1 tag: "Number: n" inside the body tag)
+All routes use strict_slashes=False.
+The application listens on 0.0.0.0, port 5000
 
 """
 
