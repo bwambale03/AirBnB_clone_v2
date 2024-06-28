@@ -1,7 +1,14 @@
 #!/usr/bin/python3
 """
-start Flask application
-
+This script starts a Flask web application with the following functionalities:
+- The web application listens on 0.0.0.0, port 5000.
+- It fetches data from the storage engine (FileStorage or DBStorage) via the `storage` object.
+- It defines a route `/states_list` that displays a HTML page with a list of all State objects present in DBStorage, sorted by name.
+- The HTML page includes:
+    - An H1 tag with the text “States”.
+    - A UL tag with the list of all State objects, each described by its ID and name inside an LI tag.
+- The script ensures the current SQLAlchemy Session is removed after each request by declaring a method to handle `@app.teardown_appcontext` and calling `storage.close()` within this method.
+- All route definitions use the `strict_slashes=False` option.
 """
 
 from flask import Flask, render_template
